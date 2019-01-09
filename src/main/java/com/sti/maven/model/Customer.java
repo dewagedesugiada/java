@@ -2,15 +2,11 @@ package com.sti.maven.model;
 
 import java.sql.Date;  
 import javax.persistence.*;
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+
 @Entity
 public class Customer {
 	@Id
-//	@Column(name="customer_number")
+
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int customerNumber ;
 	
@@ -41,10 +37,9 @@ public class Customer {
 
 
 
-	public Customer(int customerNumber, String firstName, String lastName, Date birthDate, String username,
+	public Customer(String firstName, String lastName, Date birthDate, String username,
 			String password, String phonetype, String phoneNumber) {
 		
-		this.customerNumber = customerNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthDate = birthDate;

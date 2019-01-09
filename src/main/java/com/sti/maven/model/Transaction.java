@@ -1,8 +1,5 @@
 package com.sti.maven.model;
-import javax.annotation.Generated;
 import javax.persistence.*;
-
-import org.springframework.boot.autoconfigure.web.ResourceProperties.Strategy;
 
 @Entity
 public class Transaction {
@@ -16,19 +13,19 @@ public class Transaction {
 	@Column(name = "Amount")
 	private String amount;
 	@Column(name = "Amount_sign")
-	private String amaountSign;
+	private String amountSign;
 	@ManyToOne
 	@JoinColumn(name="accountNumber")
 	private Account accountNumber;
 	
 	public Transaction() {}
 	
-	public Transaction(int idTransaction, String type, String amount, String amaountSign, Account accountNumber) {
+	public Transaction(int idTransaction, String type, String amount, String amountSign, Account accountNumber) {
 
 		this.idTransaction = idTransaction;
 		this.type = type;
 		this.amount = amount;
-		this.amaountSign = amaountSign;
+		this.amountSign = amountSign;
 		this.accountNumber = accountNumber;
 	}
 
@@ -56,12 +53,12 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	public String getAmaountSign() {
-		return amaountSign;
+	public String getAmountSign() {
+		return amountSign;
 	}
 
-	public void setAmaountSign(String amaountSign) {
-		this.amaountSign = amaountSign;
+	public void setAmountSign(String amountSign) {
+		this.amountSign = amountSign;
 	}
 
 	public Account getAccountNumber() {

@@ -3,27 +3,31 @@ package com.sti.maven.model;
 import java.util.Date;
 import javax.persistence.*;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties.Strategy;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
+@SuppressWarnings("unused")
 public class Account {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int accountNumber;
-	@Column
+	@Column(name="Open_date")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date openDate;
-	@Column
+	@Column(name="Balance")
 	private String balance;
 	
 	@ManyToOne
 	@JoinColumn(name="customer_number")
+	@JsonProperty("customer")
 	private Customer customerNumber;
 	
+
 	private Account() {}
 
-	public Account(int accountNumber, Date openDate, String balance, Customer customerNumber) {
-		super();
-		this.accountNumber = accountNumber;
+	public Account( Date openDate, String balance, Customer customerNumber) {
+		
 		this.openDate = openDate;
 		this.balance = balance;
 		this.customerNumber = customerNumber;
