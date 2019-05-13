@@ -52,7 +52,7 @@ public class AccountController {
 		LOGGER.info("accountNumber : {} ", accontNumber);
 		try {
 			Account account = accountDao.getById(Integer.valueOf(accontNumber));
-
+		
 			return new CommonResponse<AccountDto>(modelMaper.map(account, AccountDto.class));
 
 		} catch (CustomException e) {

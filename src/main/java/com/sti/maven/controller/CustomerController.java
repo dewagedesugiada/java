@@ -188,6 +188,24 @@ public class CustomerController {
 	
 	}
 	
+	
+	@PostMapping(value="/post")
+	public CommonResponse insertData(@RequestBody Customer customer) throws CustomException {	
+		try {
+			
+			customer.setCustomerNumber(0);
+			 customerDao.save(customer);
+			
+			return new CommonResponse<>(customer);
+		} catch (CustomException e) {
+			return new CommonResponse("01", e.getMessage());	
+		}
+		catch (Exception e) {
+			LOGGER.error(e.getMessage());
+			return new CommonResponse("06", e.getMessage());
+		}
+	
+	}
 
 	
 	
